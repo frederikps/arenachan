@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
   let contents = [];
     arena
   .channel("place-hyufowbjwka")
-  .get({ page: 1, per: 20,
+  .get({ page: 1, per: 64,
     direction: 'desc',
     sort: 'position'
    })
