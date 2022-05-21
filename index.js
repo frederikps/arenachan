@@ -1,7 +1,7 @@
 const express = require('express')
 const Arena = require("are.na");
 const app = express()
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 const arena = new Arena();
 
 
@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
   let contents = [];
     arena
   .channel("place-hyufowbjwka")
-  .get({ page: 1, per: 64,
+  .get({ page: 1, per: 34,
     direction: 'desc',
     sort: 'position'
    })
