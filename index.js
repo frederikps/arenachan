@@ -1,7 +1,7 @@
 const express = require('express')
 const Arena = require("are.na");
 const app = express()
-const port = 3000
+const port = process.env.PORT
 const arena = new Arena();
 
 
@@ -15,9 +15,9 @@ app.get('/', (req, res) => {
     sort: 'position'
    })
   .then(function(channel){
-    channel.contents.forEach(function(x) {
-      if (x.image) {
-        contents.push(`<img src="${x.image.display.url}">`);
+    channel.contents.forEach(function(item) {
+      if (item.image) {
+        contents.push(`<img src="${item.image.display.url}">`);
        }
     })
     res.send(contents.join(""))
