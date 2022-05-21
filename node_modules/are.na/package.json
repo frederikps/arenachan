@@ -1,0 +1,45 @@
+{
+  "name": "are.na",
+  "version": "0.1.5",
+  "description": "Interface to are.na API",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "pretest": "find test/staged | grep \\? | sed -e 's#^.*api.are.na/v2/##' | cat test/staged/list.txt - | sort | uniq -u | wget -cx -P test/staged/get -B https://api.are.na/v2/ -i - --header=\"X-ACCESS-TOKEN: $ARENA_ACCESS_TOKEN\"",
+    "test": "mocha",
+    "test:watch": "nodemon -e js,txt --exec 'yarn test'",
+    "postversion": "git push && git push --tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivangreene/arena-js.git"
+  },
+  "keywords": [
+    "are.na",
+    "api",
+    "axios",
+    "request",
+    "rest",
+    "oauth"
+  ],
+  "author": "Ivan Greene",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ivangreene/arena-js/issues"
+  },
+  "homepage": "https://github.com/ivangreene/arena-js#readme",
+  "dependencies": {
+    "axios": "^0.18.1",
+    "qs": "^6.5.1"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.7",
+    "sinon": "^4.1.2",
+    "sinon-chai": "^2.14.0"
+  }
+}
