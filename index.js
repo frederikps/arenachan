@@ -8,6 +8,7 @@ const port = process.env.PORT || 3000;
 app.get("/:channel/:page", function (req, res) {
   const arena = new Arena();
   let contents = [];
+
   arena
     .channel(req.params.channel)
     .get({
@@ -25,9 +26,8 @@ app.get("/:channel/:page", function (req, res) {
       contents.push(`</a></main>`);
       contents = contents.join("");
       res.send(contents);
-    })
-    .catch(function (error) {
-      res.send(error);
+    }).catch(function () {
+      res.send("");
     });
 });
 
