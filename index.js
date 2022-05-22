@@ -5,6 +5,14 @@ const port = process.env.PORT || 3000;
 
 // "place-hyufowbjwka"
 
+app.get('/', (req, res) => {
+  res.redirect('/place-hyufowbjwka/1');
+});
+
+app.get('/:channel', (req, res) => {
+  res.redirect(`/${req.params.channel}/1`);
+});
+
 app.get("/:channel/:page", function (req, res) {
   const arena = new Arena();
   let contents = [];
