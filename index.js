@@ -4,13 +4,21 @@ const app = express()
 const port = process.env.PORT || 3000
 const arena = new Arena();
 
-
+// "place-hyufowbjwka"
 
 app.get('/', (req, res) => {
+  res.redirect('/place-hyufowbjwka/1');
+})
+
+app.get('/:channel', (req, res) => {
+  res.redirect(`/${req.params.channel}/1`);
+})
+
+app.get('/:channel/:page', (req, res) => {
   let contents = [];
     arena
-  .channel("place-hyufowbjwka")
-  .get({ page: 1, per: 34,
+  .channel(req.params.channel)
+  .get({ page: req.params.page, per: 34,
     direction: 'desc',
     sort: 'position'
    })
@@ -20,7 +28,7 @@ app.get('/', (req, res) => {
         contents.push(`<img src="${item.image.display.url}">`);
        }
     })
-    res.send(contents.join(""))
+    res.send(`<main><a href="/${req.params.channel}/${parseInt(req.params.page)+1}">`+contents.join("")+`</a></main>`)
     });
   })
 
