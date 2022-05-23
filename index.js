@@ -12,11 +12,18 @@ app.set("views", "./views")
 // "place-hyufowbjwka"
 
 app.get('/', (req, res) => {
-  res.redirect('/place-hyufowbjwka/1');
+  if (req.query.channel) { 
+    
+    res.redirect(`/${req.query.channel}/1`);
+   } else
+  {
+
+    res.redirect('/place-hyufowbjwka/1');
+  }
 });
 
 app.get('/:channel', (req, res) => {
-  res.redirect(`/${req.params.channel}/1`);
+  res.redirect(`/${req.channel}/1`);
 });
 
 app.get("/:channel/:page", function (req, res) {
@@ -38,9 +45,10 @@ app.get("/:channel/:page", function (req, res) {
       });
       contents = contents.join("");
       res.render("template", {
-        body: contents,
-        next: `/${req.params.channel}/${parseInt(req.params.page) + 1}`,
-        previous: `/${req.params.channel}/${parseInt(req.params.page) - 1}`,
+        body: contents
+        // ,
+        // next: `/${req.params.channel}/${parseInt(req.params.page) + 1}`,
+        // previous: `/${req.params.channel}/${parseInt(req.params.page) - 1}`,
       });
     }).catch(function () {
       res.send("");
