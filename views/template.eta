@@ -29,7 +29,7 @@
 
 <body>
     <div class="ac-container">
-        <a href="javascript:history.back()"><div></div></a>
+        <a href="<%= it.previous %>"><div></div></a>
         <div class="ac-contents">
             <%~ it.body %>
         </div>
