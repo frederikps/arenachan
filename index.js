@@ -1,7 +1,13 @@
 const express = require("express");
 const Arena = require("are.na");
+const eta = require("eta")
 const app = express();
 const port = process.env.PORT || 3000;
+app.engine("eta", eta.renderFile)
+
+app.set("view engine", "eta")
+
+app.set("views", "./views")
 
 // "place-hyufowbjwka"
 
@@ -30,10 +36,12 @@ app.get("/:channel/:page", function (req, res) {
           contents.push(`<img src="${item.image.display.url}">`);
         }
       });
-      contents.unshift(`<main><a href="/${req.params.channel}/${parseInt(req.params.page) + 1}">`);
-      contents.push(`</a></main>`);
       contents = contents.join("");
-      res.send(contents);
+      res.render("template", {
+        body: contents,
+        next: `/${req.params.channel}/${parseInt(req.params.page) + 1}`,
+        previous: `/${req.params.channel}/${parseInt(req.params.page) - 1}`,
+      });
     }).catch(function () {
       res.send("");
     });
