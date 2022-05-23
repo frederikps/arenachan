@@ -83,7 +83,12 @@ select {
 
 .container{
     display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+    padding-top: 12vh;
+    grid-template-columns: 1fr 8fr 1fr;
+}
+.contents{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 .container > a {
     height: 100%;
@@ -98,7 +103,7 @@ select {
 <body>
     <div class="container">
         <a href="<%= it.previous %>"><div></div></a>
-        <div>
+        <div class="contents">
             <%~ it.body %>
         </div>
         <a href="<%= it.next %>"><div></div></a>
