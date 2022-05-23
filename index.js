@@ -3,20 +3,36 @@ const Arena = require("are.na");
 const eta = require("eta");
 const app = express();
 const port = process.env.PORT || 3000;
+
 app.engine("eta", eta.renderFile);
-
 app.set("view engine", "eta");
-
 app.set("views", "./views");
 
-// "place-hyufowbjwka"
-
-app.get('/', (req, res) => {
-    res.send('');
+app.get("/", function (req, res) {
+  const arena = new Arena();
+  let contents = [];
+  arena.search()
+    .channels({
+      page: req.params.page, per: 34,
+    })
+    .then(function (channels) {
+      channels.forEach(function (channel) {
+        contents.push(`<a href="/${channel.slug}/1">${channel.title}</a>`);
+      });
+      contents = contents.join("");
+      res.render("template", {
+        body: contents,
+        previous: ``,
+        next: ``
+      });
+    })
+    .catch(function () {
+      res.send("");
+    });
 });
 
-app.get('/:channel', (req, res) => {
-  res.redirect(`/${req.channel}/1`);
+app.get("/:channel", function (req, res) {
+  res.redirect(`/${req.params.channel}/1`);
 });
 
 app.get("/:channel/:page", function (req, res) {
