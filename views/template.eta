@@ -23,15 +23,13 @@
         .ac-contents * {
             width: 100%;
         }
-        .ac-container > a, .ac-container > a > div {
-        }
 
     </style>
 </head>
 
 <body>
     <div class="ac-container">
-        <a href="<%= it.previous %>"><div></div></a>
+        <a href="javascript:history.back()"><div></div></a>
         <div class="ac-contents">
             <%~ it.body %>
         </div>
