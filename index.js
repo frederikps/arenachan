@@ -12,13 +12,7 @@ app.set("views", "./views");
 // "place-hyufowbjwka"
 
 app.get('/', (req, res) => {
-  if (req.query.channel) {
-
-    res.redirect(`/${req.query.channel}/1`);
-  } else {
-
     res.send('');
-  }
 });
 
 app.get('/:channel', (req, res) => {
