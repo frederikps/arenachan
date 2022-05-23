@@ -14,7 +14,7 @@
         }
 
         .ac-container {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 8fr 1fr;
         }
 
         .ac-contents {
@@ -23,16 +23,19 @@
         .ac-contents * {
             width: 100%;
         }
+        .ac-container > a, .ac-container > a > div {
+        }
 
     </style>
 </head>
 
 <body>
     <div class="ac-container">
-        
+        <a href="<%= it.previous %>"><div></div></a>
         <div class="ac-contents">
             <%~ it.body %>
         </div>
+        <a href="<%= it.next %>"><div></div></a>
 
 
     </div>

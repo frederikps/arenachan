@@ -45,10 +45,9 @@ app.get("/:channel/:page", function (req, res) {
       });
       contents = contents.join("");
       res.render("template", {
-        body: contents
-        // ,
-        // next: `/${req.params.channel}/${parseInt(req.params.page) + 1}`,
-        // previous: `/${req.params.channel}/${parseInt(req.params.page) - 1}`,
+        body: contents,
+        previous: `/${req.params.channel}/${parseInt(req.params.page) - 1}`,
+        next: `/${req.params.channel}/${parseInt(req.params.page) + 1}`
       });
     }).catch(function () {
       res.send("");
