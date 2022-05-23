@@ -7,20 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
     <style>
-        .ac-container,
-        .ac-contents {
-            display: grid;
-            width: 100%;
-        }
 
-        .ac-container {
+        
+        .accontainer {
+            display: grid;
             grid-template-columns: 1fr 8fr 1fr;
         }
-
-        .ac-contents {
+        
+        .accontents {
+            display: grid;
             grid-template-columns: repeat(2,1fr);
+            font-size: 2rem;
+            padding: 12.5vh 0;
         }
-        .ac-contents * {
+        img {
             width: 100%;
         }
 
@@ -28,9 +28,9 @@
 </head>
 
 <body>
-    <div class="ac-container">
+    <div class="accontainer w-full">
         <a href="<%= it.previous %>"><div></div></a>
-        <div class="ac-contents">
+        <div class="accontents w-full">
             <%~ it.body %>
         </div>
         <a href="<%= it.next %>"><div></div></a>
