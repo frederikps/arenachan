@@ -24,10 +24,27 @@
             width: 100%;
         }
 
+        .block {
+            margin: 5px;
+        }
+
+        .title-container {
+            margin-top: 10px;
+            text-align:center;
+        }
+
+        .title-container h1 {
+            margin:auto;
+            vertical-align:middle;
+        }
+
     </style>
 </head>
 
 <body>
+    <div class="title-container">
+        <h1> <%~ it.title %> </h1>
+    </div>
     <div class="accontainer w-full">
         <a href="<%= it.previous %>"><div></div></a>
         <div class="accontents w-full">
