@@ -1,0 +1,12 @@
+{
+  "name": "Are.na channel browser",
+  "description": "A website allowing users to browse any are.na channel",
+  "repository": "https://github.com/frederikps/arenachan",
+  "logo": "https://node-js-sample.herokuapp.com/node.png",
+  "keywords": [
+    "are.na",
+    "express",
+    "channel",
+    "browser"
+  ]
+}
