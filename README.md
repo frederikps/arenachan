@@ -6,3 +6,4 @@
 * [http://arenachan.herokuapp.com/place-hyufowbjwka/1](http://arenachan.herokuapp.com/place-hyufowbjwka/1)
 * Use with any channel ```http://arenachan.herokuapp.com/[channel]/[page]```
 * Set default channel throught the DEFAULT_CHANNEL env variable
+* Many bugs + things that could work better
